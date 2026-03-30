@@ -425,17 +425,8 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);box-shadow:0 
 .abstract-quote:hover{border-left-width:5px;}
 
 /* ── PROGRESS INDICATOR ── */
-.tab-progress{
-  height:2px;
-  background:var(--border);
-  position:relative;
-  overflow:hidden;
-}
-.tab-progress-bar{
-  height:100%;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  transition:width .4s ease;
-}
+.tab-progress{ display:none; }
+.tab-progress-bar{ display:none; }
 
 /* ── SCROLL TO TOP ── */
 .scroll-top{
@@ -1812,7 +1803,8 @@ function switchTab(id) {
   document.querySelector(`[data-tab="${id}"]`).scrollIntoView({inline:'center',behavior:'smooth',block:'nearest'});
 
   // Scroll page to top of content
-  window.scrollTo({top: document.querySelector('.tab-bar').offsetTop - 10, behavior:'smooth'});
+  const hero = document.querySelector('.hero');
+  window.scrollTo({top: hero.offsetTop + hero.offsetHeight, behavior:'smooth'});
 }
 
 // ─── SCROLL TO TOP BUTTON ────────────────────────────────
